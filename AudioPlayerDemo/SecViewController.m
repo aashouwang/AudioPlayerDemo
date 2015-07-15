@@ -47,6 +47,40 @@
 }
 */
 
+/**
+ *	@brief	显示当前视图控制器时注册远程事件
+ *
+ *	@param 	animated 	是否以动画的形式显示
+ */
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    //开启远程控制
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+}
+
+/**
+ *	@brief	当前控制器视图不显示时取消远程控制
+ *
+ *	@param 	animated 	是否以动画的形式消失
+ */
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    //结束远程控制
+    [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
+}
+
+- (void)dealloc
+{
+    if (_audioPlayer) {
+        [_audioPlayer release];
+    }
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [super dealloc];
+}
+
 #pragma mark -
 #pragma mark - Private Action
 - (void)addView
@@ -151,6 +185,14 @@
             NSLog(@"初始化播放器过程发生错误，错误信息：%@", error.localizedDescription);
             return nil;
         }
+        
+        //设置后台播放模式
+        AVAudioSession * audioSession = [AVAudioSession sharedInstance];
+        [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
+        [audioSession setActive:YES error:nil];
+        
+        //添加通知，拔出耳机后暂定播放
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(routeChange:) name:AVAudioSessionRouteChangeNotification object:nil];
     }
     return _audioPlayer;
 }
@@ -178,6 +220,25 @@
         NSLog(@"pause");
         [self.audioPlayer pause];
         self.timer.fireDate = [NSDate distantFuture];
+    }
+}
+
+#pragma mark -
+#pragma mark - NSNOtification Delegate Action
+- (void)routeChange:(NSNotification *)notify
+{
+    NSDictionary * dic = [notify userInfo];
+    int changeReason = [dic[AVAudioSessionRouteChangePreviousRouteKey] intValue];
+    
+    //等于AVAudioSessionRouteChangeReasonOldDeviceUnavailable表示旧输出不可用
+    if (changeReason == AVAudioSessionRouteChangeReasonOldDeviceUnavailable) {
+        AVAudioSessionRouteDescription * routeDescription = dic[AVAudioSessionRouteChangePreviousRouteKey];
+        AVAudioSessionPortDescription * portDesciption = [routeDescription.outputs firstObject];
+        
+        //原设备为耳机则暂停
+        if ([portDesciption.portType isEqualToString:@"Headphones"]) {
+            [self pause];
+        }
     }
 }
 
