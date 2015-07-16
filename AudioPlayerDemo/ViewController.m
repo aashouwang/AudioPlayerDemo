@@ -10,6 +10,7 @@
 #import "UIImage+ColorToImage.h"
 #import <AVFoundation/AVFoundation.h>
 #import "SecViewController.h"
+#import "ThirdViewController.h"
 
 @interface ViewController ()
 
@@ -53,6 +54,17 @@
     [thirdButton addTarget:self action:@selector(thirdButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:thirdButton];
     
+    UIButton * fourthButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    fourthButton.frame = CGRectMake(20, 240, 280, 35);
+    fourthButton.center = CGPointMake(self.view.frame.size.width * 0.5f, fourthButton.center.y);
+    fourthButton.layer.cornerRadius = button.frame.size.height * 0.5f;
+    fourthButton.layer.masksToBounds = YES;
+    [fourthButton setBackgroundImage:[UIImage createImageWithColor:[UIColor colorWithRed:0.12 green:0.23 blue:0.23f alpha:1.0f]] forState:UIControlStateNormal];
+    [fourthButton setBackgroundImage:[UIImage createImageWithColor:[UIColor colorWithRed:0.16 green:0.27 blue:0.3f alpha:1.0f]] forState:UIControlStateHighlighted];
+    [fourthButton setTitle:@"播放音乐库的音乐" forState:UIControlStateNormal];
+    [fourthButton addTarget:self action:@selector(fourthButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:fourthButton];
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -78,6 +90,13 @@
     SecViewController * secVc = [[SecViewController alloc] init];
     [self presentViewController:secVc animated:YES completion:^{}];
     [secVc release];
+}
+
+- (void)fourthButtonClicked
+{
+    ThirdViewController * thirdVC = [[ThirdViewController alloc] init];
+    [self presentViewController:thirdVC animated:YES completion:^{}];
+    [thirdVC release];
 }
 
 #pragma mark -
