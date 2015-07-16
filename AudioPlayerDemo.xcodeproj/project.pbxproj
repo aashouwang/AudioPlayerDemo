@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3859103E1B57463700F0C0C0 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3859103D1B57463700F0C0C0 /* ThirdViewController.m */; };
+		385910421B57B68300F0C0C0 /* thumb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 385910411B57B68300F0C0C0 /* thumb@2x.png */; };
 		84CCEC3A1B54E26D000BE78F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CCEC391B54E26D000BE78F /* main.m */; };
 		84CCEC3D1B54E26D000BE78F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CCEC3C1B54E26D000BE78F /* AppDelegate.m */; };
 		84CCEC401B54E26D000BE78F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CCEC3F1B54E26D000BE78F /* ViewController.m */; };
@@ -35,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3859103C1B57463700F0C0C0 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		3859103D1B57463700F0C0C0 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		385910411B57B68300F0C0C0 /* thumb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumb@2x.png"; sourceTree = "<group>"; };
 		84CCEC341B54E26D000BE78F /* AudioPlayerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioPlayerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84CCEC381B54E26D000BE78F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84CCEC391B54E26D000BE78F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -104,6 +109,7 @@
 				84CCEC3B1B54E26D000BE78F /* AppDelegate.h */,
 				84CCEC5D1B54E4EE000BE78F /* background.caf */,
 				84CCEC6D1B551CC0000BE78F /* 陈奕迅 - 红玫瑰.mp3 */,
+				385910411B57B68300F0C0C0 /* thumb@2x.png */,
 				84CCEC671B551266000BE78F /* 1.jpg */,
 				84CCEC691B55168C000BE78F /* efun_pf_EX_normal@2x.png */,
 				84CCEC6A1B55168C000BE78F /* efun_pf_goon_normal@2x.png */,
@@ -112,6 +118,8 @@
 				84CCEC3F1B54E26D000BE78F /* ViewController.m */,
 				84CCEC641B54F3B1000BE78F /* SecViewController.h */,
 				84CCEC651B54F3B1000BE78F /* SecViewController.m */,
+				3859103C1B57463700F0C0C0 /* ThirdViewController.h */,
+				3859103D1B57463700F0C0C0 /* ThirdViewController.m */,
 				84CCEC611B54EA48000BE78F /* UIImage+ColorToImage.h */,
 				84CCEC621B54EA48000BE78F /* UIImage+ColorToImage.m */,
 				84CCEC411B54E26D000BE78F /* Main.storyboard */,
@@ -232,6 +240,7 @@
 				84CCEC6B1B55168C000BE78F /* efun_pf_EX_normal@2x.png in Resources */,
 				84CCEC431B54E26D000BE78F /* Main.storyboard in Resources */,
 				84CCEC481B54E26D000BE78F /* LaunchScreen.xib in Resources */,
+				385910421B57B68300F0C0C0 /* thumb@2x.png in Resources */,
 				84CCEC5E1B54E4EE000BE78F /* background.caf in Resources */,
 				84CCEC451B54E26D000BE78F /* Images.xcassets in Resources */,
 				84CCEC681B551266000BE78F /* 1.jpg in Resources */,
@@ -255,6 +264,7 @@
 			files = (
 				84CCEC401B54E26D000BE78F /* ViewController.m in Sources */,
 				84CCEC3D1B54E26D000BE78F /* AppDelegate.m in Sources */,
+				3859103E1B57463700F0C0C0 /* ThirdViewController.m in Sources */,
 				84CCEC631B54EA48000BE78F /* UIImage+ColorToImage.m in Sources */,
 				84CCEC661B54F3B1000BE78F /* SecViewController.m in Sources */,
 				84CCEC3A1B54E26D000BE78F /* main.m in Sources */,
@@ -460,6 +470,7 @@
 				84CCEC591B54E26D000BE78F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84CCEC5A1B54E26D000BE78F /* Build configuration list for PBXNativeTarget "AudioPlayerDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +479,7 @@
 				84CCEC5C1B54E26D000BE78F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
